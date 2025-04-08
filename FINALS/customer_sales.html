@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Sales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff5e1;
+            text-align: center;
+        }
+        .item {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: white;
+            text-align: center;
+            margin: 10px;
+        }
+        .item img {
+            width: 100px;
+            border-radius: 15px;
+        }
+        .button {
+            background-color: #ff8800;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Customer Sales</h1>
+    <p>Customers can request specific items they are looking for.</p>
+    <div>
+        <div class="item">
+            <img src="rice.jpg" alt="rice">
+            <p>Rice - ₱50/kg</p>
+            <input type="number" id="riceQty" min="0" value="0">
+        </div>
+        <div class="item">
+            <img src="noodles.png" alt="Noodles">
+            <p>Noodles - ₱15/pack</p>
+            <input type="number" id="noodlesQty" min="0" value="0">
+        </div>
+        <div class="item">
+            <img src="3in1Coffee.png" alt="3in1Coffee">
+            <p>3 in 1 Coffee - ₱15/pack</p>
+            <input type="number" id="3in1coffeeQty" min="0" value="0">
+        </div>
+        <br><div class="item">
+            <img src="milk.png" alt="milk">
+            <p>Milk - ₱15/pack</p>
+            <input type="number" id="milkQty" min="0" value="0">
+        </div>
+        <div class="item">
+            <img src="sugar.png" alt="sugar">
+            <p>Sugar - ₱45/pack</p>
+            <input type="number" id="sugarQty" min="0" value="0">
+        </div></br>
+
+        <button class="button" onclick="addToCart('Rice', 50, 'riceQty'; 'Noodles', 15, 'noodlesQty'; '3 in 1 Coffee', 15, '3in1CoffeeQty';
+        'Milk', 15, 'milkQty'; ''Milk', 15, 'milkQty')">Add to Cart</button>
+    
+    </div>
+    <script>
+        function addToCart(item, price, qtyId) {
+            let qty = document.getElementById(qtyId).value;
+            qty = parseInt(qty);
+            if (qty > 0) {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push({ item, price, qty });
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`${qty} x ${item} added to cart!`);
+            }
+        }
+    </script>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <button onclick="goHome()" style="
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+">Home</button>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+        &copy; 2025 Sari-Sari Store. All Rights Reserved.
+    </footer>
+
+
+</body>
+</html>

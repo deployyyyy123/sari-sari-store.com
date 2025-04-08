@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sari-Sari Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .box {
+            background-color: orange;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 15px;
+        }
+        button {
+            background-color: white;
+            border: 2px solid orange;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+            width: 200px;
+        }
+        input {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sari-Sari Store</h1>
+        
+        <div class="box">
+            <h2>Customer Sales</h2>
+            <p>Click an item to add to cart.</p>
+            <div>
+                <button onclick="addToCart('Coke', 20)">Coke - ₱20</button> Quantity: <input type="number" id="CokeQty" value="1" min="1">
+                <button onclick="addToCart('Chips', 15)">Chips - ₱15</button> Quantity: <input type="number" id="ChipsQty" value="1" min="1">
+                <button onclick="addToCart('Candy', 5)">Candy - ₱5</button> Quantity: <input type="number" id="CandyQty" value="1" min="1">
+                <button onclick="addToCart('Instant Noodles', 25)">Instant Noodles - ₱25</button> Quantity: <input type="number" id="NoodlesQty" value="1" min="1">
+                <button onclick="addToCart('Soap', 30)">Soap - ₱30</button> Quantity: <input type="number" id="SoapQty" value="1" min="1">
+            </div>
+            <p><strong>Cart:</strong> <span id="cart"></span></p>
+            <p><strong>Total Price:</strong> ₱<span id="totalPrice">0</span></p>
+        </div>
+        
+        <div class="box">
+            <h2>Restocking</h2>
+            <p>Inventory check and order online or in-store.</p>
+            <button onclick="checkInventory()">Check Inventory</button>
+        </div>
+        
+        <div class="box">
+            <h2>Payment</h2>
+            <p>Choose a payment method:</p>
+            <button onclick="pay('GCash / PayMaya')">GCash / PayMaya</button>
+            <button onclick="pay('Cash')">Cash</button>
+            <p><strong>Enter Payment Amount:</strong> <input type="number" id="paymentAmount" /></p>
+            <button onclick="calculateChange()">Calculate Change</button>
+            <p><strong>Change:</strong> ₱<span id="change">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        let cartItems = [];
+        let totalPrice = 0;
+        
+        function addToCart(item, price) {
+            let quantity = parseInt(document.getElementById(item + "Qty").value);
+            for (let i = 0; i < quantity; i++) {
+                cartItems.push(item);
+                totalPrice += price;
+            }
+            document.getElementById("cart").innerText = cartItems.join(", ");
+            document.getElementById("totalPrice").innerText = totalPrice;
+        }
+
+        function pay(method) {
+            alert("Payment method selected: " + method);
+        }
+
+        function calculateChange() {
+            let payment = parseFloat(document.getElementById("paymentAmount").value);
+            let change = payment - totalPrice;
+            document.getElementById("change").innerText = change >= 0 ? change : "Insufficient amount";
+        }
+
+        function checkInventory() {
+            alert("Checking inventory... All items are sufficiently stocked.");
+        }
+    </script>
+</body>
+</html>

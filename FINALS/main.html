@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sari-Sari Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sari-Sari Store</h1>
+        
+        <div class="box">
+            <h2>Customer Sales</h2>
+            <p>Click an item to add to cart.</p>
+            <div class="items">
+                <button onclick="addToCart('Coke', 20)">Coke - ₱20</button> <input type="number" id="CokeQty" value="1" min="1">
+                <button onclick="addToCart('Chips', 15)">Chips - ₱15</button> <input type="number" id="ChipsQty" value="1" min="1">
+                <button onclick="addToCart('Candy', 5)">Candy - ₱5</button> <input type="number" id="CandyQty" value="1" min="1">
+                <button onclick="addToCart('Instant Noodles', 25)">Instant Noodles - ₱25</button> <input type="number" id="NoodlesQty" value="1" min="1">
+                <button onclick="addToCart('Soap', 30)">Soap - ₱30</button> <input type="number" id="SoapQty" value="1" min="1">
+            </div>
+            <p><strong>Cart:</strong> <span id="cart"></span></p>
+            <p><strong>Total Price:</strong> ₱<span id="totalPrice">0</span></p>
+        </div>
+        
+        <div class="box">
+            <h2>Restocking</h2>
+            <p>Inventory check and order online or in-store.</p>
+            <button onclick="checkInventory()">Check Inventory</button>
+        </div>
+        
+        <div class="box">
+            <h2>Payment</h2>
+            <p>Choose a payment method:</p>
+            <button onclick="pay('GCash / PayMaya')">GCash / PayMaya</button>
+            <button onclick="pay('Cash')">Cash</button>
+            <p><strong>Enter Payment Amount:</strong> <input type="number" id="paymentAmount" /></p>
+            <button onclick="calculateChange()">Calculate Change</button>
+            <p><strong>Change:</strong> ₱<span id="change">0</span></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

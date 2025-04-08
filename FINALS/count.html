@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<script>
+	function login() 
+	{
+   	 let correctUsername = "elledcr";
+   	 let correctPassword = "123456789";
+   	 let attempts = 0;
+
+    for(int i = 0; i < 2; i++)
+    {
+      let username = prompt("Please enter username");
+      let password = prompt("Please enter password");
+
+      if(username === correctUsername && password === correctPassword)
+      {
+        Alert("Login Successful");
+        localStorage.setItem("loggedIn","true");
+        Window.location.href="file:///F:/RAMOS%202B%20WST2/FINALS/LD1FINALS_2B_RAMOS.html";
+        return;
+      }else{
+        Alert("Incorrect username or password. Try again later.");
+        attempts++;
+      }
+      if(attempts===2)
+      {
+        Alert("You had 2 incorrect attempts. Try again in 10 seconds");
+        setTimeout(function() 
+        {
+          Alert("You can now try again");
+          login();
+        }, 10000);
+        return;
+   
+    }
+   }
+  }
+</script>
+<body>
+<body onload="login()">
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, white, orange);
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .login-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: orange;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button {
+      background-color: orange;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-box button:hover {
+      background-color: darkorange;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="LD3_RAMOS.html" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <script>
+    function checkLogin() {
+      const correctUsername = "elledcr";
+      const correctPassword = "castanares_11092018";
+      const usernameInput = document.getElementById("username").value;
+      const passwordInput = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      if (passwordInput === correctPassword) {
+        message.style.color = "green";
+        message.textContent = "Login successfully.";
+      }
+        else {
+        message.style.color = "red";
+        message.textContent = "Incorrect password. Try again later.";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Repetition Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        button { padding: 10px 15px; font-size: 16px; cursor: pointer; }
+        #output { margin-top: 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <h2>Song Repetition Generator</h2>
+    <p>Click the button to repeat the song line!</p>
+
+    <button onclick="repeatSongLine()">Repeat Line</button>
+    <button onclick="clearSong()">Clear</button>
+    <div id="output"></div>
+
+    <script>
+        let count = 0;
+        function repeatSongLine() {
+            count++;
+            let line = "🎵 La la la... 🎶<br>";
+            document.getElementById("output").innerHTML += line;
+        }
+
+        function clearSong() {
+            document.getElementById("output").innerHTML = "";
+            count = 0;
+        }
+    </script>
+
+</body>
+</html>
